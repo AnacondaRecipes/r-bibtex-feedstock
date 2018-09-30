@@ -24,9 +24,9 @@ build:
 
 requirements:
   build:
-    - posix                # [win]
+    - posix                      # [win]
     - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{native}}toolchain        # [win]
   host:
     - r-base
     - r-stringr
@@ -34,6 +34,7 @@ requirements:
   run:
     - r-base
     - r-stringr
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
